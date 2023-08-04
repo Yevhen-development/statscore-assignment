@@ -37,9 +37,12 @@ class GildedRoseTest extends TestCase
     public function testQualityIsValid()
     {
         new Item(ItemName::SULFURAS->value, 4, 100);
+
         $this->expectException(QualityException::class);
         $this->expectExceptionMessage('The Quality of an item is never more than 50');
         new Item(ItemName::AGED_BRIE->value, 4, 100);
+        new Item(ItemName::BACK_STAGE->value, 4, 100);
+        new Item(ItemName::ELIXIR->value, 4, 100);
     }
 
     public function itemsProvider(): array
