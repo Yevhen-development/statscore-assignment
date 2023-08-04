@@ -8,7 +8,7 @@ use App\Exception\QualityException;
 
 final class Item
 {
-    function __construct(public readonly string $name, public int $sellIn, public int $quality)
+    function __construct(public readonly string $name, private int $sellIn, private int $quality)
     {
         if ($this->quality < 0) {
             throw new QualityException('The Quality of an item is never negative');
